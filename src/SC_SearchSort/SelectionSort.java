@@ -41,7 +41,15 @@ public class SelectionSort {
     public static void main(String[] args) {
         double[] list = {-2, 4.5, 5, 1, 2, -3.3};
         selectionSort(list);
+        
+        System.out.println("FRONT SORTED");
         for (int i = 0; i < list.length; i++)
             System.out.print(list[i] + " ");
+        
+        System.out.println("\n\nBACK SORTED");
+        for (int i = list.length-1; i > -1; i--)
+            System.out.print(list[i] + " ");
+        
+        
     }
 }
