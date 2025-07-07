@@ -153,18 +153,61 @@ public class SinglyLinkedList<T> {
     
     }
     
+    public int getSize(){
+        return this.size;
+    }
+    
+    public boolean contains(T e){
+        
+        Node<T> current = head;
+        boolean isThere = false;
+        for (int i = 0; i < size; i++){
+            if (e.equals(current.element)){
+                isThere = true;
+                break;
+            }
+            current = current.next;
+        }
+        return isThere;
+    }
+    
+    public T get(int index){
+    
+    }
+    
+    public int indexOf(T e){
+    // search for the elements
+    }
+    
+    public void set(int index, T e){
+    // go to index then set it
+    }
+    
     public static void main(String[] args) {
         
-        SinglyLinkedList<String> hehe = new SinglyLinkedList<String>();
+        SinglyLinkedList<String> hehe = new SinglyLinkedList<>();
         
         hehe.addFirst("Haziq");
         hehe.addLast("bestie");
         hehe.add(1, "adam");
+        hehe.traverse();
+        System.out.println(hehe.getSize());
+        
+        System.out.println(hehe.contains("bestie"));
+        System.out.println(hehe.contains("ale"));
+        
         hehe.removeFirst();
         hehe.removeLast();
-        
         hehe.traverse();
+        System.out.println(hehe.getSize());
+        
         
     }
     
 }
+
+
+/**
+ * 
+ * MAIN PROBLEM HERE IS TO CALCULATE THE ITERATION PROCESS
+ */
