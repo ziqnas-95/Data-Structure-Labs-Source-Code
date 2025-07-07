@@ -104,7 +104,7 @@ public class SinglyLinkedList<T> {
         } else {
             Node<T> current = head;
             
-            for (int i = 0; i < size - 2; i++){
+            for (int i = 1; i < size - 1; i++){
                 current = current.next;
             }
             
@@ -127,13 +127,13 @@ public class SinglyLinkedList<T> {
             return removeLast();
         }
         else {
-            Node<T> previous = head;
+            Node<T> temp = head;
             for (int i = 1; i < index; i++) {
-                previous = previous.next;
+                temp = temp.next;
             } 
             
-            Node<T> current = previous.next;
-            previous.next = current.next;
+            Node<T> current = temp.next;
+            temp.next = current.next;
             size--;
             return current.element;
         }
@@ -172,34 +172,83 @@ public class SinglyLinkedList<T> {
     }
     
     public T get(int index){
-    
+        Node<T> temp = head;
+        if (index == 0){
+            return temp.element;
+        }
+        
+        for (int i = 1; i < index; i++) {
+            temp = temp.next;
+        } 
+
+        Node<T> current = temp.next;
+        return current.element;
     }
     
     public int indexOf(T e){
-    // search for the elements
+        Node<T> temp = head;
+        
+        if (temp.element.equals(e)){
+            return 0;
+        } else {
+            for (int i = 1; i < size - 1; i++) {
+                temp = temp.next;
+                if (temp.element.equals(e)){
+                    return i;
+                }
+            } 
+        }
+        return -1;
     }
     
     public void set(int index, T e){
-    // go to index then set it
+        Node<T> temp = head;
+        if (index == 0){
+            temp.element = e;
+        } else {
+            for (int i = 1; i < index; i++) {
+                temp = temp.next;
+            } 
+            Node<T> current = temp.next;
+            current.element = e;
+        }
+        
     }
     
     public static void main(String[] args) {
         
-        SinglyLinkedList<String> hehe = new SinglyLinkedList<>();
+        SinglyLinkedList<String> mylist = new SinglyLinkedList<>();
         
-        hehe.addFirst("Haziq");
-        hehe.addLast("bestie");
-        hehe.add(1, "adam");
-        hehe.traverse();
-        System.out.println(hehe.getSize());
+        mylist.addFirst("Haziq");
+        mylist.addFirst("Adam");
+        mylist.addFirst("Ajwad");
+        mylist.addFirst("Iche");
+        mylist.addLast("Othman");
+        mylist.traverse();
         
-        System.out.println(hehe.contains("bestie"));
-        System.out.println(hehe.contains("ale"));
+        System.out.println("\n");
+        mylist.add(1, "Muaz");
+        mylist.traverse();
         
-        hehe.removeFirst();
-        hehe.removeLast();
-        hehe.traverse();
-        System.out.println(hehe.getSize());
+        System.out.println("\n\n" + mylist.get(0));
+        
+        System.out.println("");
+        mylist.set(2, "Fahim");
+        mylist.traverse();
+        
+        System.out.println("\n");
+        System.out.println(mylist.indexOf("Iche"));
+        
+        System.out.println("");
+        System.out.println("SIZE:" + mylist.getSize());
+        
+        System.out.println("\n" + mylist.contains("Adam"));
+        System.out.println(mylist.contains("ale"));
+        
+        mylist.removeFirst();
+        mylist.removeLast();
+        mylist.traverse();
+        System.out.println("\nSIZE:" + mylist.getSize());
         
         
     }
