@@ -12,7 +12,7 @@ public class Permute {
     
     public static void main(String[] args) {
         
-        perm("SUPER");
+        perm("HEHE");
         
     }
     
