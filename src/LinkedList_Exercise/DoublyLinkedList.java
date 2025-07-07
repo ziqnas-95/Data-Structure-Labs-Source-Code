@@ -39,34 +39,30 @@ public class DoublyLinkedList<E> {
         if (head != null){
             head.prev = tmp;
         }
+        
         head = tmp;
         
         if (tail == null){
             tail = tmp;
         }
+        
         size++; //increase size of the set
         System.out.println("adding: " + element);
     }
     
     public void addLast(E element){
         
-        //Create a new node object and set the pointer of the new node
+        if (size == 0){
+            addFirst(element);
+            return;
+        }
+        
         DLLNode<E> tmp = new DLLNode(element, null, tail);
         
-        /**
-         * This checks whether there is already an element in the list
-         * If not null, then the current tail next pointer will point to tmp
-         * Adding a new tail, then we must also update the new tail as tmp
-         */
-        if (tail != null){
-            tail.next = tmp;
-        }
+        tail.next = tmp;
         tail = tmp;
         
-        if (head == null){
-            head = tmp;
-        }
-        size++; //increase size of the set
+        size++; 
         System.out.println("adding: " + element);
     }
     
@@ -140,7 +136,6 @@ public class DoublyLinkedList<E> {
         return tmp.element;
     }
     
-    
     public E removeLast(){
         
         if (size == 0){
@@ -186,15 +181,25 @@ public class DoublyLinkedList<E> {
     public void clear(){
         int value = size;
         DLLNode<E> temp = head;
-        while (head != null){
-            temp = head.next;
-            head.prev = head.next = null;
-            head = temp;
+        while (temp != null){
+            DLLNode<E> nextNode = temp.next;
+            temp.prev = null;
+            temp.next = null;
+            temp = nextNode;
         }
-        temp = null;
-        tail.prev = tail.next = null;
+        head = null;
+        tail = null;
+        
         size = 0;
         System.out.println("successfully clear " + value + " node(s)");
+    }
+    
+    public void clear1(){
+        int clear = size;
+        head = null;
+        tail = null;
+        size = 0;
+        System.out.println("successfully cleared " + clear + " node(s)");
     }
     
     public int getSize(){
@@ -211,9 +216,21 @@ public class DoublyLinkedList<E> {
         list.addLast(3);
         list.add(2, 67);
         list.traverseForward();
+        
+        list.removeFirst();
+        list.traverseForward();
+        
+        list.removeLast();
         list.traverseBackward();
         
-        list.clear();
+        list.clear1();
         list.traverseForward();
+        
+        list.addFirst(12);
+        list.addFirst(13);
+        list.traverseForward();
+        list.addLast(3);
+        list.traverseForward();
+        
     }
 }
