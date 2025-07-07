@@ -254,9 +254,3 @@ public class SinglyLinkedList<T> {
     }
     
 }
-
-
-/**
- * 
- * MAIN PROBLEM HERE IS TO CALCULATE THE ITERATION PROCESS
- */
