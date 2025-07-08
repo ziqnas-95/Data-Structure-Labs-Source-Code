@@ -1,8 +1,7 @@
-
 package SC_BST;
 
-
 public class TestBSTDelete {
+    
     public static void main(String[] args) {
         BST<String> tree = new BST<String>();
         tree.insert("George");

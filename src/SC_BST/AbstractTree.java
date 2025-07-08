@@ -1,5 +1,3 @@
-
-
 package SC_BST;
 
 public abstract class AbstractTree<E> implements Tree<E> {
