@@ -21,16 +21,10 @@ public class GenericSelectionSort {
               currentMinIndex = j;
             }
           }
-
-          // Swap list[i] with list[currentMinIndex] if necessary;
-//          if (currentMinIndex != i) {
-//            list[currentMinIndex] = list[i];
-//            list[i] = currentMin;
-//          }
           
           swap(list, currentMinIndex, i);
+        }
     }
-  }
     
     /**
     * Swaps two elements in an array. Used by various sorting algorithms.
@@ -44,5 +38,17 @@ public class GenericSelectionSort {
         T temp = data[index1];
         data[index1] = data[index2];
         data[index2] = temp;
+    }
+    
+    public static void main(String[] args) {
+        
+        Double[] list = {-20.0, 4.5, 5.0, 1.0, 2.0, -3.30};
+        
+        selectionSort(list);
+        
+        System.out.println("FRONT SORTED");
+        for (int i = 0; i < list.length; i++)
+            System.out.print(list[i] + " ");
+        
     }
 }
