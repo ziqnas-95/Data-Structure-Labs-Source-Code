@@ -24,7 +24,7 @@ public class GenericSelectionSort {
           int currentMinIndex = i;
           for (int j = i + 1; j < list.length; j++) {
             if (currentMin.compareTo(list[j]) > 0) {
-              currentMin = list[j];
+//              currentMin = list[j];
               currentMinIndex = j;
             }
           }

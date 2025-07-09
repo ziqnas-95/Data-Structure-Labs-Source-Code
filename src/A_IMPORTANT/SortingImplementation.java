@@ -59,17 +59,16 @@ public class SortingImplementation {
     public static <T extends Comparable<T>> void selectionSort(T[] list)
     {
         for (int i = 0; i < list.length-1; i++) {
-          // Find the minimum in the list[i..list.length-1]
-          T currentMin = list[i];
-          int currentMinIndex = i;
-          for (int j = i + 1; j < list.length; j++) {
-            if (currentMin.compareTo(list[j]) > 0) {
-              currentMin = list[j];
-              currentMinIndex = j;
+            // Find the minimum in the list[i..list.length-1]
+            T currentMin = list[i];
+            int currentMinIndex = i;
+            for (int j = i + 1; j < list.length; j++) {
+                if (currentMin.compareTo(list[j]) > 0) {
+                    currentMinIndex = j;
+                }
             }
-          }
-          
-          swap(list, currentMinIndex, i);
+
+            swap(list, currentMinIndex, i);
         }
     }
     
@@ -79,7 +78,6 @@ public class SortingImplementation {
         data[index1] = data[index2];
         data[index2] = temp;
     }
-    
     
     
     /**

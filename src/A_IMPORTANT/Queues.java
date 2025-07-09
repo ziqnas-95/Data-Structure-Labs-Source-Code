@@ -8,8 +8,6 @@ package A_IMPORTANT;
  *
  * @author Haziq Nasaruddin
  */
-import java.util.LinkedList;
-
 public class Queues<E> {
     
     //private java.util.LinkedList<E> list = new java.util.LinkedList<>();
