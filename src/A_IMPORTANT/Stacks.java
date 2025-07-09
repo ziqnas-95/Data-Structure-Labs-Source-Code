@@ -10,7 +10,9 @@ package A_IMPORTANT;
  */
 public class Stacks<E> {
     
-    private java.util.ArrayList<E> list = new java.util.ArrayList<>();
+    //private java.util.ArrayList<E> list = new java.util.ArrayList<>();
+    
+    private java.util.LinkedList<E> list = new java.util.LinkedList<>();
     
     public int getSize() {
         return list.size();
@@ -21,12 +23,12 @@ public class Stacks<E> {
     }
     
     public void push(E e){
-        list.add(e);
+        list.addLast(e);
     }
     
     public E pop(){
         E element = list.getLast();
-        list.remove(getSize()-1);
+        list.removeLast();
         return element;
     }
     

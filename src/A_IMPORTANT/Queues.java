@@ -8,20 +8,30 @@ package A_IMPORTANT;
  *
  * @author Haziq Nasaruddin
  */
+import java.util.LinkedList;
+
 public class Queues<E> {
     
-    private java.util.LinkedList<E> list = new java.util.LinkedList<>();
+    //private java.util.LinkedList<E> list = new java.util.LinkedList<>();
+    
+    private java.util.ArrayList<E> list = new java.util.ArrayList<>();
+    
+   
     
     public void enQ(E e){
+        //list.addLast(e);
+        
         list.addLast(e);
     }
     
     public E deQ(){
         return list.removeFirst();
+        //return list.removeFirst();
     }
     
-    public int getSize(){   
+    public int getSize(){
         return list.size();
+        //return list.size();
     }
     
     public String toString(){
