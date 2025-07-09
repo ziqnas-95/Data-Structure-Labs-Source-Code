@@ -14,10 +14,10 @@ public class ReadCSV {
     
     public static void main(String[] args) {
         
-        readCSV("sample_students.csv");
+        //readCSV("sample_students.csv");
         System.out.println("");
         
-        try (BufferedReader reader = new BufferedReader(new FileReader("sample_students.csv"))){
+        try (BufferedReader reader = new BufferedReader(new FileReader("data.txt"))){
             
             String line;
             int count = 0;

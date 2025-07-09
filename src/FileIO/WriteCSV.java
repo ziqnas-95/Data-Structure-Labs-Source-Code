@@ -25,7 +25,7 @@ public class WriteCSV {
          * to write to a new file           new FileWriter("data.csv")
          * to append to an existing file    new FileWriter("data.csv", true)
          */
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter("data.csv", true))) { // simply change the file type here (txt or csv)
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("data.txt"))) { // simply change the file type here (txt or csv)
             // Write header                                                                         
             writer.write("Name,Age,City");
             writer.newLine();
