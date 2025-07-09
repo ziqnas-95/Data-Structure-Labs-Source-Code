@@ -20,10 +20,7 @@ public class LinearSearch {
     public static void main(String[] args) {
         
         int[] list = {4, 5, 1, 2, 9, -3};
-        /**
-         * array does not need sorting in this one as the method is
-         * just to traverse through the array
-         */
+        
         System.out.println(linearSearch(list, 2));
     }
 }
