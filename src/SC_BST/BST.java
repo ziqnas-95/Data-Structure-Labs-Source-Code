@@ -1,6 +1,19 @@
 package SC_BST;
 
 public class BST<E extends Comparable<E>> extends AbstractTree<E> {
+    
+    /** This inner class is static, because it does not access 
+     * any instance members defined in its outer class */
+    public static class TreeNode<E extends Comparable<E>> {
+        protected E element;
+        protected TreeNode<E> left;
+        protected TreeNode<E> right;
+
+        public TreeNode(E e) {
+            element = e;
+        }
+    }
+    
     protected TreeNode<E> root;
     protected int size = 0;
 
@@ -61,6 +74,16 @@ public class BST<E extends Comparable<E>> extends AbstractTree<E> {
     protected TreeNode<E> createNewNode(E e) {
         return new TreeNode<E>(e);
     }
+    
+    @Override /** Get the number of nodes in the tree */
+    public int getSize() {
+        return size;
+    }
+
+    /** Returns the root of the tree */
+    public TreeNode<E> getRoot() {
+        return root;
+    }
 
     @Override /** Inorder traversal from the root*/
     public void inorder() {
@@ -101,36 +124,9 @@ public class BST<E extends Comparable<E>> extends AbstractTree<E> {
         preorder(root.right);
     }
 
-    
-    
-    
-    
-    /** This inner class is static, because it does not access 
-     * any instance members defined in its outer class */
-    public static class TreeNode<E extends Comparable<E>> {
-        protected E element;
-        protected TreeNode<E> left;
-        protected TreeNode<E> right;
-
-        public TreeNode(E e) {
-            element = e;
-        }
-    }
-
-    @Override /** Get the number of nodes in the tree */
-    public int getSize() {
-        return size;
-    }
-
-    /** Returns the root of the tree */
-    public TreeNode<E> getRoot() {
-        return root;
-    }
-
     /** Returns a path from the root leading to the specified element */
     public java.util.ArrayList<TreeNode<E>> path(E e) {
-        java.util.ArrayList<TreeNode<E>> list =
-                new java.util.ArrayList<TreeNode<E>>();
+        java.util.ArrayList<TreeNode<E>> list = new java.util.ArrayList<TreeNode<E>>();
         TreeNode<E> current = root; // Start from the root
 
         while (current != null) {
@@ -178,6 +174,7 @@ public class BST<E extends Comparable<E>> extends AbstractTree<E> {
                 else
                     parent.right = current.right;
             }
+            
         } else {
             // Case 2: The current node has a left child
             // Locate the rightmost node in the left subtree of
