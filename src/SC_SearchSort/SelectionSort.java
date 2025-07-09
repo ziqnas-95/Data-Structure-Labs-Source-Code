@@ -51,6 +51,5 @@ public class SelectionSort {
         for (int i = list.length-1; i > -1; i--)
             System.out.print(list[i] + " ");
         
-        
     }
 }

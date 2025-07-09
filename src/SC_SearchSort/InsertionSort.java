@@ -3,6 +3,7 @@ package SC_SearchSort;
 public class InsertionSort {
     /** The method for sorting the numbers */
     public static void insertionSort(int[] list) {
+        
         for (int i = 1; i < list.length; i++) {
             /** insert list[i] into a sorted sub list list[0..i-1] so that
                  list[0..i] is sorted. */
