@@ -1,5 +1,6 @@
 package SC_SearchSort;
 
+import java.util.Arrays;
 
 public class SelectionSort {
     /** The method for sorting the numbers */

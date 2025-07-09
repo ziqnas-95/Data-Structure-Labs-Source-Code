@@ -44,13 +44,33 @@ public class Searching {
     public static void main(String[] args) {
         
         int[] list = {-3, 1, 0, 4, 2, -5, 90, 22, 3, 75, 323};
-        Arrays.sort(list);
+        bubbleSort(list);
+        //Arrays.sort(list);
         System.out.println("Found at index : " + binarySearch(list, 3));
         for (int x : list){
             System.out.print(x + " ");
         }
         
         System.out.println(linearSearch(list, 2));
+    }
+    
+    public static void bubbleSort(int[] list) {
+        boolean needNextPass = true;
+
+        for (int k = 1; k < list.length && needNextPass; k++) {
+            // Array may be sorted and next pass not needed
+            needNextPass = false;
+            for (int i = 0; i < list.length - k; i++) {
+                if (list[i] > list[i + 1]) {
+                    // Swap list[i] with list[i + 1]
+                    int temp = list[i];
+                    list[i] = list[i + 1];
+                    list[i + 1] = temp;
+
+                    needNextPass = true; // Next pass still needed
+                }
+            }
+        }
     }
     
     
